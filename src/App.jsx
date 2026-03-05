@@ -536,10 +536,49 @@ CONTEXT:
 ⚠ DO NOT include 4052 31st Ave W in multi-unit $/sqft averages. It is a different building type.
 The high $/sqft ($333) is partly explained by fixed site/slope costs ($227k = $154/sqft) spread over a small 1,476 sqft footprint. The same fixed costs on a 4,000 sqft project would be ~$57/sqft.
 
-ADU/DADU BENCHMARKS (31st Ave — steep slope, 1 unit):
-Total hard cost: $490,943 · $333/sqft
-Key slope costs: Excavation $54,865 · Landscape/retaining $53,976 · Foundation $45,346 · Survey $16,868
-Use this as reference ONLY when estimating single-unit ADU/DADU projects on steep sites.
+ADU/DADU BENCHMARKS:
+Steep slope (31st Ave W reference): $333/sqft · 1,476 sqft · $490,943 total
+Flat/simple lot (builder estimate): $260/sqft — USE THIS AS BASE FOR FLAT DADU ESTIMATES
+
+CRITICAL ADU/DADU PRICING RULE:
+Single-unit DADUs have HIGH fixed costs that do NOT scale down with square footage:
+- Pump truck: needed regardless of size
+- Permits and fees: largely fixed
+- Utility connections (water, sewer, gas, electric meters): fixed per project — USE 31st Ave as reference ($24,101)
+- Mobilization: fixed
+On a 4,000 sqft multi-unit project these fixed costs = ~$15/sqft
+On a 1,880 sqft DADU the SAME dollar amounts = ~$30+/sqft
+NEVER estimate a DADU below $250/sqft on a flat lot — fixed costs alone prevent this.
+Flat DADU range: $250–$275/sqft
+Steep slope DADU range: $310–$340/sqft (ref: 31st Ave $333/sqft)
+Do NOT blend multi-unit $/sqft averages into DADU estimates — they are different building types.
+
+31st Ave W IS a good reference for these line items (use for ALL DADUs flat or steep):
+- Utilities/meters: $24,101
+- Framing: $46,867
+- Siding: $19,809
+- Electrical: $17,634
+- Plumbing: $18,242
+- HVAC: $12,794
+- Drywall: $16,535
+- Interior Paint: $10,428
+- Doors & Millwork: $12,754
+- Roofing: $11,045
+- Insulation: $5,168
+- Windows: $6,511
+- Tile: $18,957
+- Cabinetry & Countertops: $14,572
+- Hardwood Floors: $14,034
+- Appliances: $3,835
+- Mirrors/Shower Doors: $2,725
+
+31st Ave W IS NOT a good reference for these (slope-specific — reduce significantly for flat lots):
+- Excavation: $54,865 → flat lot estimate $15,000–$20,000
+- Foundation: $45,346 → flat lot estimate $20,000–$28,000
+- Survey/Geotech: $16,868 → flat lot estimate $6,000–$9,000
+- Engineering: $6,695 → flat lot estimate $4,000–$6,000
+- Landscape/Rockery: $53,976 → flat lot estimate $15,000–$25,000 (no retaining walls)
+- Demo/Abate: $10,000 → flat lot estimate $5,000–$8,000
 
 SITE COMPLEXITY BENCHMARKS:
 FLAT/SIMPLE avg (50th Ave, Alonzo, 30th Ave):   $243/sqft  range $238–$247
