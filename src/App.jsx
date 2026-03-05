@@ -87,15 +87,14 @@ async function exportToExcel(estimate, formMeta) {
 
   const date = new Date().toISOString().slice(0, 10);
   const slug = (formMeta?.description || "estimate").slice(0, 30).replace(/[^a-z0-9]/gi, "_");
-  const wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-  const blob = new Blob([wbout], { type: "application/octet-stream" });
-  const url = URL.createObjectURL(blob);
+  const wbout = XLSX.write(wb, { bookType: "xlsx", type: "base64" });
   const a = document.createElement("a");
-  a.href = url;
+  a.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + wbout;
   a.download = `BuildCost_${slug}_${date}.xlsx`;
+  a.style.display = "none";
   document.body.appendChild(a);
   a.click();
-  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  document.body.removeChild(a);
 }
 
 function exportToPDF(estimate, formMeta) {
