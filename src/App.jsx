@@ -99,11 +99,11 @@ async function exportToExcel(estimate, formMeta) {
   } catch(e) {
     // Fallback: copy CSV to clipboard
     const rows = parseEstimateLines(estimate);
-    const csv = ["Section,Line Item,Low,Mid,High",
-      ...rows.map(r => `${r.Section},${r["Line Item"]},${r.Low},${r.Mid},${r.High}`)
+    const tsv = ["Section\tLine Item\tLow\tMid\tHigh",
+      ...rows.map(r => `${r.Section}\t${r["Line Item"]}\t${r.Low}\t${r.Mid}\t${r.High}`)
     ].join("\n");
-    await navigator.clipboard.writeText(csv);
-    alert("Excel download failed in this browser.\n\nYour estimate has been copied to clipboard as CSV.\nOpen Excel or Numbers and paste it in.");
+    await navigator.clipboard.writeText(tsv);
+    alert("Your estimate has been copied to clipboard!\n\nOpen Excel, click an empty cell, and press Cmd+V to paste.\nIt will paste into columns automatically.");
   }
 }
 
