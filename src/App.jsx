@@ -35,8 +35,9 @@ function parseEstimateLines(text) {
 }
 
 async function exportToExcel(estimate, formMeta) {
-  const XLSX = await loadXLSX();
-  const wb = XLSX.utils.book_new();
+  try {
+    const XLSX = await loadXLSX();
+    const wb = XLSX.utils.book_new();
 
   // Sheet 1: Estimate line items
   const rows = parseEstimateLines(estimate);
@@ -95,6 +96,15 @@ async function exportToExcel(estimate, formMeta) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+  } catch(e) {
+    // Fallback: copy CSV to clipboard
+    const rows = parseEstimateLines(estimate);
+    const csv = ["Section,Line Item,Low,Mid,High",
+      ...rows.map(r => `${r.Section},${r["Line Item"]},${r.Low},${r.Mid},${r.High}`)
+    ].join("\n");
+    await navigator.clipboard.writeText(csv);
+    alert("Excel download failed in this browser.\n\nYour estimate has been copied to clipboard as CSV.\nOpen Excel or Numbers and paste it in.");
+  }
 }
 
 function exportToPDF(estimate, formMeta) {
