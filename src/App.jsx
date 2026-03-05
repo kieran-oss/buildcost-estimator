@@ -87,7 +87,15 @@ async function exportToExcel(estimate, formMeta) {
 
   const date = new Date().toISOString().slice(0, 10);
   const slug = (formMeta?.description || "estimate").slice(0, 30).replace(/[^a-z0-9]/gi, "_");
-  XLSX.writeFile(wb, `BuildCost_${slug}_${date}.xlsx`);
+  const wbout = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+  const blob = new Blob([wbout], { type: "application/octet-stream" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `BuildCost_${slug}_${date}.xlsx`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
 }
 
 function exportToPDF(estimate, formMeta) {
