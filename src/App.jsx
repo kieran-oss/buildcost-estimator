@@ -523,15 +523,25 @@ ${summaries}
 
 CONTEXT:
 - All projects are Seattle new construction, 3-unit buildings by Bungalow Building Corp
-- 3407 NW 57th St (Ballard):       5,050 sqft → $1,229,439 → $243/sqft
+- 3407 NW 57th St (Ballard):       5,050 sqft → $1,229,439 → $243/sqft  [2025 — MOST RECENT]
   Unit mix: 1@2,400sqft (w/garage), 2@1,250sqft (w/garage), 3@1,400sqft
-- 5017 50th Ave SW (West Seattle):  3,860 sqft → $917,705   → $238/sqft
+- 5017 50th Ave SW (West Seattle):  3,860 sqft → $917,705   → $238/sqft  [2024-25]
   Unit mix: 1@986sqft, 2@1,244sqft (w/garage), 3@1,102sqft
-- 7032 Alonzo Ave NW:               4,474 sqft → $1,105,091 → $247/sqft
+- 7032 Alonzo Ave NW:               4,474 sqft → $1,105,091 → $247/sqft  [2024]
   3 units · 4,166 interior + 308 garage · $20k excavation credit applied
-- 8608 30th Ave SW (West Seattle):  4,225 sqft → $1,029,051 → $244/sqft  [FLAT/SIMPLE]
-- 1423 Madrona Dr:                  3,665 sqft → $1,171,945 → $320/sqft  [COMPLEX — steep slope, premium finishes, 2 units]
-- 4052 31st Ave W:                  1,476 sqft → $490,943   → $333/sqft  [ADU/DADU — 1 unit, steep slope, built for client — SEPARATE BUILDING TYPE]
+- 8608 30th Ave SW (West Seattle):  4,225 sqft → $1,029,051 → $244/sqft  [2023 — FLAT/SIMPLE]
+- 1423 Madrona Dr:                  3,665 sqft → $1,171,945 → $320/sqft  [2022 — COMPLEX — steep slope, premium finishes, 2 units]
+- 4052 31st Ave W:                  1,476 sqft → $490,943   → $333/sqft  [2024 — ADU/DADU — 1 unit, steep slope, built for client — SEPARATE BUILDING TYPE]
+
+RECENCY WEIGHTING — CRITICAL:
+Weight more recent job data more heavily when deriving $/sqft estimates. Apply this weighting:
+- 3407 NW 57th St (2025): weight 40% — most current pricing
+- 5017 50th Ave SW (2024-25): weight 30%
+- 7032 Alonzo Ave NW (2024): weight 20%
+- 8608 30th Ave SW (2023): weight 7%
+- 1423 Madrona Dr (2022): weight 3% — oldest; use only for complexity premiums, not base pricing
+When older data conflicts with newer data on a line item, always defer to the newer job.
+Note: 4052 31st Ave W (2024 ADU) is excluded from multi-unit weighting but remains the primary reference for all DADU estimates.
 
 ⚠ DO NOT include 4052 31st Ave W in multi-unit $/sqft averages. It is a different building type.
 The high $/sqft ($333) is partly explained by fixed site/slope costs ($227k = $154/sqft) spread over a small 1,476 sqft footprint. The same fixed costs on a 4,000 sqft project would be ~$57/sqft.
@@ -624,43 +634,105 @@ IMPORTANT ESTIMATION NOTE: Condo Docs ($4,970–$8,700 range) should be called o
 - Your subcontractors include: Black Wolf Construction (framing), Rainstate Earthworks (excavation/utilities), Star Electric, Plumbing Group LLC, Comfy Air LLC (HVAC), GL Siding / New Beginnings (siding), Puzzle/AAA Roofing, Arreguin's Drywall, M Finish Coat Painting, Green Edging Landscaping, Pinnacle Custom Floors, New Renaissance (finish carpentry), Bellmont (cabinetry)
 - Typical material suppliers: Chinook Lumber, DMS Supply, Lake Washington Windows, New Standard Building Materials, Western Title (countertops)
 
+PRICING RULES — APPLY THESE EXACT RATES (all figures include tax; historical data already includes tax):
+- Framing Labor: $11.00/sqft (tax included)
+- Interior Paint & Finishes: $3.50/sqft (tax included)
+- Exterior Paint: $3.50/sqft (tax included)
+- Finish Carpentry: $3.80/sqft (tax included)
+- ALL other categories: scale from historical $/sqft benchmarks; tax is already included in all historical data — do not add tax on top
+- Electric Trim is a SEPARATE line from Electrical — do not combine them
+
 ESTIMATION INSTRUCTIONS:
 Respond with exactly three sections:
 
 ## COST-PER-SQUARE-FOOT BENCHMARKS
-Show $/sqft for 3407 NW 57th St (use 5,050 sqft). For 5017 50th Ave SW, note sqft is unknown.
-Table columns: Category | 57th St Total | 57th St $/sqft | 50th Ave Total
-Key trades: Foundation, Framing+Lumber, Electrical, Plumbing, HVAC, Siding, Roofing, Drywall, Cabinetry+Finishes, Landscape, Backfill/Site
+Show $/sqft for each reference job where available.
+Table columns: Category | 57th St Total | 57th St $/sqft | 50th Ave Total | 50th Ave $/sqft | Avg $/sqft
+Key trades: Foundation, Framing Materials+Trusses, Framing Labor, Electrical, Electric Trim, Plumbing Rough+Labor, Plumbing Fixtures, HVAC, Siding, Roofing, Drywall, Cabinetry, Countertops, Landscape, Backfill/Utilities
 
 ## COST ESTIMATE BY CATEGORY
-Line-item estimate with Low | Mid | High. Scale from the 57th St $/sqft benchmarks.
-Lines:
-- Site Work / Excavation / Demo
-- Foundation & Concrete  
-- Framing, Lumber & Trusses
-- Roofing
-- Windows & Exterior Doors
-- Siding & Exterior
-- Electrical
-- Plumbing & Fixtures
-- HVAC & Gas
-- Insulation
-- Drywall
-- Hardwood Floors & Tile
-- Interior Finishes (paint, millwork, carpentry)
-- Cabinetry & Countertops
-- Appliances
-- Landscaping & Site
-- Permits, Engineering, Legal, Survey
-- Backfill, Utilities, Site Infrastructure
-- Contingency & Overhead (12%)
-- **TOTAL PROJECT ESTIMATE**
+Line-item estimate as a markdown table with columns: Category | Low | Mid | High | Notes
+Use ### subheaders to group categories. Each group gets its own subtotal row.
+YOU MUST INCLUDE ALL 40 CATEGORIES BELOW — do not skip or combine any:
+
+### SITE & STRUCTURE
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Excavation, Demo, Site Prep | | | | |
+| Demo, Exterm, Abate | | | | |
+| Foundation | | | | |
+| Survey | | | | |
+| Inspections (structural, geotechnical, other PE) | | | | |
+| Site Development (Architecture, Engineering & Design) | | | | |
+| **Subtotal** | | | | |
+
+### FRAMING & SHELL
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Framing, Materials, Trusses | | | | |
+| Framing Labor | | | | use $11.00/sqft |
+| Roofing | | | | |
+| Windows | | | | |
+| Exterior Doors and Garage Doors | | | | |
+| Siding | | | | |
+| Decking | | | | |
+| Exterior Paint | | | | use $3.50/sqft |
+| **Subtotal** | | | | |
+
+### MECHANICAL & ELECTRICAL
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Backfill and Utilities (sewer, water, storm) | | | | |
+| Water, Electrical Meters & Fees | | | | |
+| City Right of Way Repair and Improvements | | | | |
+| Electrical | | | | |
+| Electric Trim | | | | |
+| Plumbing Rough & Labor | | | | |
+| Plumbing Fixtures | | | | |
+| HVAC, Gas Piping, Venting | | | | |
+| Insulation | | | | |
+| **Subtotal** | | | | |
+
+### INTERIOR FINISHES
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Drywall | | | | |
+| Interior Paint & Finishes | | | | use $3.50/sqft |
+| Hardwood Floors | | | | |
+| Tile | | | | |
+| Mirrors, Shower Doors | | | | |
+| Cabinetry | | | | |
+| Countertops | | | | |
+| Doors & Millwork | | | | |
+| Finish Carpentry | | | | use $3.80/sqft |
+| Mailboxes, House Numbers, Cabinet & Door Hardware | | | | |
+| Appliances | | | | |
+| **Subtotal** | | | | |
+
+### SITE & LANDSCAPE
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Landscape, Rockeries, Walkway | | | | |
+| **Subtotal** | | | | |
+
+### SOFT COSTS & OTHER
+| Category | Low | Mid | High | Notes |
+|---|---|---|---|---|
+| Permits, Plans, Inspection Fees | | | | |
+| Legal | | | | |
+| Insurance | | | | |
+| Temp Services, Utilities, Waste | | | | |
+| Misc | | | | |
+| **Subtotal** | | | | |
+
+| Contingency & Overhead (12%) | | | | |
+| **TOTAL PROJECT ESTIMATE** | | | | |
 
 ## CONFIDENCE & ASSUMPTIONS
 - Confidence level and why
 - Key assumptions (sqft, unit mix, finish level)
 - Risks that could push costs above the high estimate
-- Note any significant differences between the two reference jobs
+- Note any significant differences between reference jobs
 
 Be specific. Use real numbers from the data. Do not invent figures.`;
 }
@@ -865,29 +937,78 @@ function EstimateResult({ result }) {
         const isBench = title?.toLowerCase().includes("benchmark");
         const isConf  = title?.toLowerCase().includes("confidence");
         const accent  = isBench ? "#3b82f6" : isConf ? "#10b981" : "#f59e0b";
+
+        // Detect if this section uses a markdown table
+        const hasTable = body.some(l => l.trim().startsWith("|") && !l.trim().match(/^\|[-| ]+\|$/));
+        const tableRows = hasTable ? body.filter(l => l.trim().startsWith("|") && !l.trim().match(/^\|[-| ]+\|$/)) : [];
+        const isHeaderRow = (row, i) => i === 0;
+
         return (
           <div key={si} style={{ background:"rgba(5,13,31,0.9)", border:`1px solid ${accent}22`, borderRadius:12, overflow:"hidden" }}>
             {title && <div style={{ padding:"11px 20px", background:`${accent}11`, borderBottom:"1px solid #0f2040", color:accent, fontSize:10, fontWeight:700, letterSpacing:"0.12em" }}>{title.toUpperCase()}</div>}
             <div style={{ padding:"16px 20px" }}>
-              {body.map((line, li) => {
-                if (!line.trim()) return <div key={li} style={{ height:6 }} />;
-                const isTotal  = /\*\*total/i.test(line);
-                const isBullet = /^[-•▸]/.test(line.trim());
-                const stripped = line.replace(/^[-•▸]\s*/,"");
-                const parts    = stripped.split(/\*\*(.*?)\*\*/g);
-                const rendered = parts.map((p,i) => i%2===1 ? <strong key={i} style={{color:"#e2e8f0"}}>{p}</strong> : p);
-                return (
-                  <div key={li} style={{
-                    display:"flex", gap:8, alignItems:"flex-start",
-                    marginBottom:isTotal?0:4, paddingTop:isTotal?10:0, marginTop:isTotal?8:0,
-                    borderTop:isTotal?"1px solid #1e3a5f":"none",
-                    color:isTotal?accent:"#64748b", fontSize:isTotal?14:12, fontWeight:isTotal?700:400,
-                  }}>
-                    {isBullet && <span style={{ color:accent, flexShrink:0, marginTop:1 }}>▸</span>}
-                    <span style={{ lineHeight:1.65 }}>{rendered}</span>
-                  </div>
-                );
-              })}
+              {hasTable ? (
+                // Render as a styled table
+                <div style={{ overflowX:"auto" }}>
+                  <table style={{ width:"100%", borderCollapse:"collapse", fontSize:12 }}>
+                    {tableRows.map((row, ri) => {
+                      const cells = row.split("|").map(c => c.trim()).filter((c,i,a) => i>0 && i<a.length-1);
+                      const isTotal = /total/i.test(cells[0] || "");
+                      const isSubtotal = /subtotal/i.test(cells[0] || "");
+                      const isHeader = isHeaderRow(row, ri);
+                      return (
+                        <tr key={ri} style={{
+                          borderBottom: isTotal ? `2px solid ${accent}` : "1px solid #0f2040",
+                          background: isTotal ? `${accent}18` : isSubtotal ? "rgba(255,255,255,0.03)" : "transparent",
+                        }}>
+                          {cells.map((cell, ci) => {
+                            const cleaned = cell.replace(/\*\*/g,"");
+                            const isNameCol = ci === 0;
+                            return (
+                              <td key={ci} style={{
+                                padding:"7px 10px",
+                                color: isHeader ? accent : isTotal ? accent : isSubtotal ? "#e2e8f0" : ci===0 ? "#94a3b8" : "#cbd5e1",
+                                fontWeight: isHeader || isTotal || isSubtotal ? 700 : 400,
+                                fontSize: isHeader ? 10 : isTotal ? 13 : 12,
+                                letterSpacing: isHeader ? "0.08em" : 0,
+                                textAlign: isNameCol ? "left" : "right",
+                                whiteSpace: isNameCol ? "normal" : "nowrap",
+                              }}>
+                                {cleaned}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </table>
+                </div>
+              ) : (
+                // Render as bullet/text lines
+                body.map((line, li) => {
+                  if (!line.trim()) return <div key={li} style={{ height:6 }} />;
+                  const isSubheader = /^###\s/.test(line);
+                  if (isSubheader) {
+                    return <div key={li} style={{ color:accent, fontSize:10, fontWeight:700, letterSpacing:"0.1em", marginTop:12, marginBottom:4 }}>{line.replace(/^###\s*/,"").toUpperCase()}</div>;
+                  }
+                  const isTotal  = /\*\*total/i.test(line);
+                  const isBullet = /^[-•▸]/.test(line.trim());
+                  const stripped = line.replace(/^[-•▸]\s*/,"");
+                  const parts    = stripped.split(/\*\*(.*?)\*\*/g);
+                  const rendered = parts.map((p,i) => i%2===1 ? <strong key={i} style={{color:"#e2e8f0"}}>{p}</strong> : p);
+                  return (
+                    <div key={li} style={{
+                      display:"flex", gap:8, alignItems:"flex-start",
+                      marginBottom:isTotal?0:4, paddingTop:isTotal?10:0, marginTop:isTotal?8:0,
+                      borderTop:isTotal?"1px solid #1e3a5f":"none",
+                      color:isTotal?accent:"#64748b", fontSize:isTotal?14:12, fontWeight:isTotal?700:400,
+                    }}>
+                      {isBullet && <span style={{ color:accent, flexShrink:0, marginTop:1 }}>▸</span>}
+                      <span style={{ lineHeight:1.65 }}>{rendered}</span>
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
         );
@@ -919,9 +1040,9 @@ export default function ConstructionEstimator() {
     setLoading(true); setError(null); setEstimate(null); setLastForm(form);
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST", headers:{"Content-Type":"application/json","x-api-key":process.env.REACT_APP_ANTHROPIC_API_KEY,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+        method:"POST", headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
         body: JSON.stringify({
-          model: ANTHROPIC_MODEL, max_tokens: 1000,
+          model: ANTHROPIC_MODEL, max_tokens: 4000,
           system: buildSystemPrompt(jobs),
           messages: [{ role:"user", content:
             `Estimate this new project:\nType: ${form.projectType}\nTotal Sqft: ${form.sqft} sqft\nUnit Count: ${form.units}\nLocation: ${form.location}\nTimeline: ${form.timeline}\nScope: ${form.description}\n\nProvide $/sqft benchmarks from our historical jobs, then a full line-item estimate with Low|Mid|High ranges.`
