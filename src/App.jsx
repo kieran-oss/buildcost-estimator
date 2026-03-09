@@ -1039,8 +1039,11 @@ export default function ConstructionEstimator() {
   const handleEstimate = async form => {
     setLoading(true); setError(null); setEstimate(null); setLastForm(form);
     try {
+      const apiKey = typeof process !== "undefined" && process.env?.REACT_APP_ANTHROPIC_API_KEY
+        ? process.env.REACT_APP_ANTHROPIC_API_KEY
+        : (typeof import.meta !== "undefined" ? import.meta.env?.VITE_ANTHROPIC_API_KEY : undefined);
       const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST", headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+        method:"POST", headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true", ...(apiKey ? {"x-api-key": apiKey} : {})},
         body: JSON.stringify({
           model: ANTHROPIC_MODEL, max_tokens: 4000,
           system: buildSystemPrompt(jobs),
