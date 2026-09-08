@@ -1088,16 +1088,13 @@ export default function ConstructionEstimator() {
   const handleEstimate = async form => {
     setLoading(true); setError(null); setEstimate(null); setLastForm(form);
     try {
-      const res = await fetch("/api/estimate", {
+           const res = await fetch("/api/estimate", {
         method:"POST", headers:{"Content-Type":"application/json"},
-     body: JSON.stringify({
-  model: ANTHROPIC_MODEL, max_tokens: 8000,
-  thinking: { type: "disabled" },
-  system: buildSystemPrompt(jobs),
-  messages: [{ role:"user", content:
-    ...
-  }],
-}),
+        body: JSON.stringify({
+          model: ANTHROPIC_MODEL, max_tokens: 8000,
+          thinking: { type: "disabled" },
+          system: buildSystemPrompt(jobs),
+          messages: [{ role:"user", content:
             `Estimate this new project:\nType: ${form.projectType}\nTotal Sqft: ${form.sqft} sqft\nUnit Count: ${form.units}\nLocation: ${form.location}\nTimeline: ${form.timeline}\nScope: ${form.description}\n\nProvide $/sqft benchmarks from our historical jobs, then a full line-item estimate with Low|Mid|High ranges.`
           }],
         }),
