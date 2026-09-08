@@ -455,6 +455,53 @@ const SEED_JOBS = [
     },
     byPillar: { Labor: 0, Materials: 180000, Subcontractors: 260000, Other: 50943 },
   },
+  {
+    id: "seed-7",
+    name: "4326 Woodlawn Ave N",
+    notes: "4 units · 6,146 sqft total · Wallingford. Source is the Woodlawn cost-code Budget vs Actual report (as of 09-2026), not a raw QuickBooks transaction export — sub-line-items were merged into matching classes (e.g. Electrical-Rough + Electrical-Fixtures & Trim → Electrical; Framing Subcontractor + Framing Materials → Framing, Materials, Trusses; Gutters folded into Roofing, same as 57th St). MHA (Mandatory Housing Affordability) fee of $169,989 EXCLUDED entirely per Kieran — not a construction cost. Grand total includes Insurance ($4,824) and Staging ($3,255) to match convention from 57th St. No labor/materials/subcontractor split available from this report — byPillar below is a placeholder (all in Other) until a real split is provided.",
+    sqft: 6146,
+    rowCount: 33,
+    skippedNegative: 0,
+    grandTotal: 1532215,
+    hasClass: true,
+    byClass: {
+      "Permits, Plans, Fees":                          34485,
+      "Framing, Materials, Trusses":                  164047,
+      "Electrical":                                   128608,
+      "Plumbing & Plumbing Fixtures":                  95816,
+      "Siding":                                        89145,
+      "Cabinetry & Countertops":                       87191,
+      "Foundation":                                    78770,
+      "Hardwood Floors":                               78585,
+      "Backfill and Utilities (sewer, water. storm)":  76340,
+      "HVAC, Gas Piping, Venting":                     75262,
+      "Drywall":                                       70509,
+      "Doors & Millwork":                              67720,
+      "Tile":                                          63614,
+      "Landscape, Rockeries, Walkway":                 43626,
+      "Misc":                                          36838,
+      "Roofing":                                       35387,
+      "Utility Meters & Fees":                         31634,
+      "Excavation, Demo, Site Prep":                   31670,
+      "Demo, Exterm, Abate":                           32000,
+      "Windows":                                       38153,
+      "Insulation":                                    23099,
+      "Exterior Paint":                                22082,
+      "Interior Paint & Finishes":                     22082,
+      "Engineering":                                   16485,
+      "Decking, Waterproofing, Railing":               12238,
+      "Accounting":                                    10950,
+      "Inspections/Geotech":                            9580,
+      "Survey":                                         9279,
+      "Mirrors, Shower Doors":                          8111,
+      "Insurance":                                      4824,
+      "Staging":                                        3255,
+      "Temp Services, Utilities, Waste":                 498,
+      "Architectural":                                   464,
+      "Appliances":                                    29868,
+    },
+    byPillar: { Labor: 0, Materials: 0, Subcontractors: 0, Other: 1532215 },
+  },
 ];
 
 // ── CSV Parser ────────────────────────────────────────────────────────────────
@@ -522,8 +569,9 @@ HISTORICAL JOB DATA:
 ${summaries}
 
 CONTEXT:
-- All projects are Seattle new construction, 3-unit buildings by Bungalow Building Corp
-- 3407 NW 57th St (Ballard):       5,050 sqft → $1,229,439 → $243/sqft  [2025 — MOST RECENT]
+ All projects are Seattle new construction by Bungalow Building Corp (3-unit unless noted)
+- 4326 Woodlawn Ave N (Wallingford): 6,146 sqft → $1,532,215 → $249/sqft  [2026 — MOST RECENT — 4 units; $169,989 MHA fee EXCLUDED (not a construction cost); cost-code report, not raw QB export; site complexity not yet noted; figures paid-to-date, project may not be fully closed out]
+- 3407 NW 57th St (Ballard):       5,050 sqft → $1,229,439 → $243/sqft  [2025]
   Unit mix: 1@2,400sqft (w/garage), 2@1,250sqft (w/garage), 3@1,400sqft
 - 5017 50th Ave SW (West Seattle):  3,860 sqft → $917,705   → $238/sqft  [2024-25]
   Unit mix: 1@986sqft, 2@1,244sqft (w/garage), 3@1,102sqft
@@ -535,11 +583,12 @@ CONTEXT:
 
 RECENCY WEIGHTING — CRITICAL:
 Weight more recent job data more heavily when deriving $/sqft estimates. Apply this weighting:
-- 3407 NW 57th St (2025): weight 40% — most current pricing
-- 5017 50th Ave SW (2024-25): weight 30%
-- 7032 Alonzo Ave NW (2024): weight 20%
-- 8608 30th Ave SW (2023): weight 7%
-- 1423 Madrona Dr (2022): weight 3% — oldest; use only for complexity premiums, not base pricing
+- 4326 Woodlawn Ave N (2026): weight 30% — most current pricing, though sourced from a cost-code report rather than full QuickBooks class data
+- 3407 NW 57th St (2025): weight 28%
+- 5017 50th Ave SW (2024-25): weight 22%
+- 7032 Alonzo Ave NW (2024): weight 13%
+- 8608 30th Ave SW (2023): weight 5%
+- 1423 Madrona Dr (2022): weight 2% — oldest; use only for complexity premiums, not base pricing
 When older data conflicts with newer data on a line item, always defer to the newer job.
 Note: 4052 31st Ave W (2024 ADU) is excluded from multi-unit weighting but remains the primary reference for all DADU estimates.
 
