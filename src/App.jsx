@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 
-const ANTHROPIC_MODEL = "claude-sonnet-4-20250514";
+const ANTHROPIC_MODEL = "claude-sonnet-5";
 
 // Load SheetJS from CDN
 let XLSXLib = null;
